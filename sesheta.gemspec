@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "sesheta"
   spec.version       = Sesheta::VERSION
   spec.authors       = ["Hubert Huang"]
-  spec.email         = ["hhuang@practicefusion.com"]
+  spec.email         = ["hubert77@gmail.com"]
   spec.description   = %q{Client gem for the PracticeFusion EHR}
   spec.summary       = %q{Client gem for the PracticeFusion EHR}
   spec.homepage      = ""
