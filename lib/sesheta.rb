@@ -1,5 +1,6 @@
 require "sesheta/version"
+require 'hashie'
 
 module Sesheta
-  # Your code goes here...
+  autoload :Practice, 'sesheta/practice'
 end
