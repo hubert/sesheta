@@ -10,4 +10,5 @@ module Sesheta
   autoload :LabResult,      'sesheta/lab_result'
   autoload :Prescription,   'sesheta/prescription'
   autoload :LabObservation, 'sesheta/lab_observation'
+  autoload :LabPanel,       'sesheta/lab_panel'
 end
