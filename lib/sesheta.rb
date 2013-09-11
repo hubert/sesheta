@@ -8,4 +8,5 @@ module Sesheta
   autoload :Allergy,      'sesheta/allergy'
   autoload :Immunization, 'sesheta/immunization'
   autoload :LabResult,    'sesheta/lab_result'
+  autoload :Prescription, 'sesheta/prescription'
 end
