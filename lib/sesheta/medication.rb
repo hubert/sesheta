@@ -8,9 +8,11 @@ module Sesheta
     property :sig_provider, :from => :SigProvider
     property :sig_patient, :from => :SigPatient
     property :connection
+    property :prescriptions
 
     def prescriptions
-      connection.execute_procedure('phr_GetPrescriptions', id).map do |prescription|
+      self[:prescriptions] || 
+      self[:prescriptions] = connection.execute_procedure('phr_GetPrescriptions', id).map do |prescription|
         Prescription.new(prescription)
       end
     end

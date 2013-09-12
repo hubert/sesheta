@@ -5,9 +5,11 @@ module Sesheta
     property :provider_first_name, :from => :ProviderFirstName
     property :provider_last_name, :from => :ProviderLastName
     property :connection # yes, this is a connection to the db. FML
+    property :lab_panels
 
     def lab_panels
-      connection.execute_procedure('phr_GetLabPanels', id).map do |lab_panel|
+      self[:lab_panels] || 
+      self[:lab_panels] = connection.execute_procedure('phr_GetLabPanels', id).map do |lab_panel|
         LabPanel.new(lab_panel.merge(:connection => connection))
       end
     end
