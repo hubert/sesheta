@@ -9,6 +9,8 @@ class Sesheta::Allergy < Hashie::Trash
   property :severity_title, :from => :SeverityTitle
   property :reaction_title, :from => :ReactionTitle
   property :reaction_group_title, :from => :ReactionGroupTitle
-  property :adverse_event_date, :from => :AdverseEventDate
   property :is_active, :from => :IsActive
+  property :adverse_event_date,
+    :from => :AdverseEventDate,
+    :with => lambda { |prop| (prop.nil? || prop.empty?) ? nil : Date.parse(prop) }
 end

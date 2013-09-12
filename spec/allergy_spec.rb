@@ -13,7 +13,7 @@ describe Sesheta::Allergy do
       "SeverityTitle"=>"Modest",
       "ReactionTitle"=>"Unknown",
       "ReactionGroupTitle"=>"Skin",
-      "AdverseEventDate"=>nil,
+      "AdverseEventDate"=> "9/3/2013 7:00:00 AM",
       "IsActive"=>true
     )
     
@@ -27,7 +27,7 @@ describe Sesheta::Allergy do
     expect(allergy.severity_title).to eql('Modest')
     expect(allergy.reaction_title).to eql('Unknown')
     expect(allergy.reaction_group_title).to eql('Skin')
-    expect(allergy.adverse_event_date).to eql(nil)
+    expect(allergy.adverse_event_date).to eql(Date.parse("9/3/2013 7:00:00 AM"))
     expect(allergy.is_active).to eql(true)
   end
 end
