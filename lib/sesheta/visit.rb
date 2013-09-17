@@ -11,6 +11,7 @@ module Sesheta
     property :user_id
     property :patient_id
     property :diagnoses
+    property :medications
 
     def diagnoses
       self[:diagnoses] || 
@@ -22,5 +23,14 @@ module Sesheta
       ).map { |diagnosis| Diagnosis.new(diagnosis) }
     end
 
+    def medications
+      self[:medications] || 
+      self[:medications] = connection.execute_procedure(
+        'phr_MedicationGetByTranscriptId',
+        user_id,
+        patient_id,
+        id
+      ).map { |diagnosis| Medication.new(diagnosis.merge(connection: connection)) }
+    end
   end
 end

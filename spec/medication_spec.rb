@@ -9,13 +9,18 @@ module Sesheta
         "FirstName"=>"mary",
         "LastName"=>"McPoppin",
         "SigProvider"=>"do not show",
-        "SigPatient"=>"do not show"
+        "SigPatient"=>"do not show",
+        "StartDate"=> Time.parse('2008-12-15 08:00:00 UTC'),
+        "TranscriptDOS"=> Time.parse('2012-12-15 00:00:00 UTC'),
+        "DaysApart" => 10
       )
-
       expect(med.name).to eql('Tylenol')
       expect(med.strength).to eql('varying')
       expect(med.sig_provider).to eql('do not show')
       expect(med.sig_patient).to eql('do not show')
+      expect(med.start_date).to eql(Date.parse('2008-12-15'))
+      expect(med.date_of_service).to eql(Date.parse('2012-12-15'))
+      expect(med.days_apart).to eql(10)
     end
     
     context 'id' do
