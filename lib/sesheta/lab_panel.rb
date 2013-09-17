@@ -1,6 +1,9 @@
 module Sesheta
   class LabPanel < Hashie::Trash
     property :id, :from => :LabPanelID
+    property :id, :from => :LabPanelId
+    property :lab_result_id, :from => :LabResultId
+    property :sequence, :from => :LabPanelSequence
     property :name, :from => :PanelName
     property :status, :from => :Status
     property :connection # yes, this is a connection to the db. FML
