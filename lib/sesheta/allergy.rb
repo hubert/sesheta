@@ -13,4 +13,8 @@ class Sesheta::Allergy < Hashie::Trash
   property :adverse_event_date,
     :from => :AdverseEventDate,
     :with => lambda { |prop| (prop.nil? || prop.empty?) ? nil : Date.parse(prop) }
+
+  # needed to support data returned by Phr::User.allergies_by_visit
+  property :date_of_service, from: :TranscriptDOS, with: ->(prop) { prop.to_date }
+  property :days_apart, from: :DaysApart
 end

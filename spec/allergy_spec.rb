@@ -14,7 +14,9 @@ describe Sesheta::Allergy do
       "ReactionTitle"=>"Unknown",
       "ReactionGroupTitle"=>"Skin",
       "AdverseEventDate"=> "9/3/2013 7:00:00 AM",
-      "IsActive"=>true
+      "IsActive"=>true,
+      "TranscriptDOS"=> Time.parse('2012-12-15 00:00:00 UTC'),
+      "DaysApart" => 10
     )
     
     expect(allergy.phr_user_id).to eql(29884)
@@ -29,5 +31,7 @@ describe Sesheta::Allergy do
     expect(allergy.reaction_group_title).to eql('Skin')
     expect(allergy.adverse_event_date).to eql(Date.parse("9/3/2013 7:00:00 AM"))
     expect(allergy.is_active).to eql(true)
+    expect(allergy.date_of_service).to eql(Date.parse('2012-12-15'))
+    expect(allergy.days_apart).to eql(10)
   end
 end

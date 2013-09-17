@@ -12,6 +12,7 @@ module Sesheta
     property :patient_id
     property :diagnoses
     property :medications
+    property :allergies
 
     def diagnoses
       self[:diagnoses] || 
@@ -31,6 +32,16 @@ module Sesheta
         patient_id,
         id
       ).map { |diagnosis| Medication.new(diagnosis.merge(connection: connection)) }
+    end
+
+    def allergies
+      self[:allergies] || 
+      self[:allergies] = connection.execute_procedure(
+        'phr_AllergyGetByTranscriptId',
+        user_id,
+        patient_id,
+        id
+      ).map { |allergy| Allergy.new(allergy) }
     end
   end
 end
