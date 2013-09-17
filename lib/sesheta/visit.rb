@@ -31,7 +31,7 @@ module Sesheta
         user_id,
         patient_id,
         id
-      ).map { |diagnosis| Medication.new(diagnosis.merge(connection: connection)) }
+      ).map { |medication| Medication.new(medication.merge(connection: connection)) }
     end
 
     def allergies
