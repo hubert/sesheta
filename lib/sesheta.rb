@@ -1,5 +1,6 @@
 require "sesheta/version"
 require 'hashie'
+require 'sesheta/hashie/stash'
 
 module Sesheta
   autoload :Practice,       'sesheta/practice'
