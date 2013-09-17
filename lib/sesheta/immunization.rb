@@ -1,4 +1,4 @@
-class Sesheta::Immunization < Hashie::Trash
+class Sesheta::Immunization < Hashie::WhiteTrash
   property :date_given, :from => :DateGiven
   property :immunization_type, :from => :ImmType
   property :first_name, :from => :FirstName

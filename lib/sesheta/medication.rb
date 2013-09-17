@@ -1,5 +1,5 @@
 module Sesheta
-  class Medication < Hashie::Trash
+  class Medication < Hashie::WhiteTrash
     property :name, :from => :MedName
     property :strength, :from => :Strength
     property :sig_provider, :from => :SigProvider

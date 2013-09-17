@@ -1,5 +1,5 @@
 module Sesheta
-  class LabResult < Hashie::Trash
+  class LabResult < Hashie::WhiteTrash
     property :id, :from => :LabResultID
     property :id, :from => :LabResultId
     property :report_date, :from => :ReportDate

@@ -1,5 +1,5 @@
 module Sesheta
-  class Visit < Hashie::Trash
+  class Visit < Hashie::WhiteTrash
     property :id, :from => :TranscriptID
     property :date_of_service, from: :TranscriptDOS, with: ->(prop) { prop.to_date }
     property :provider_first_name, from: :ProviderFirstName

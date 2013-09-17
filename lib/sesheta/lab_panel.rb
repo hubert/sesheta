@@ -1,5 +1,5 @@
 module Sesheta
-  class LabPanel < Hashie::Trash
+  class LabPanel < Hashie::WhiteTrash
     property :id, :from => :LabPanelID
     property :id, :from => :LabPanelId
     property :lab_result_id, :from => :LabResultId

@@ -1,4 +1,4 @@
-class Sesheta::Practice < Hashie::Trash
+class Sesheta::Practice < Hashie::WhiteTrash
   property :id, :from => :ID
   property :name, :from => :Name
   property :phone, :from => :Phone

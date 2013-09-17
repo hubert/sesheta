@@ -1,4 +1,4 @@
-class Sesheta::Prescription < Hashie::Trash
+class Sesheta::Prescription < Hashie::WhiteTrash
   property :quantity, :from => :Quantity, :with => lambda { |prop| prop.to_i }
   property :refills, :from => :Refills, :with => lambda { |prop| prop.to_i }
   property :refill_as_needed, :from => :RefillAsNeeded

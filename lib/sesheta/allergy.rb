@@ -1,4 +1,4 @@
-class Sesheta::Allergy < Hashie::Trash
+class Sesheta::Allergy < Hashie::WhiteTrash
   property :phr_user_id, :from => :PhrUserId
   property :patient_id, :from => :PatientId
   property :group_title, :from => :GroupTitle

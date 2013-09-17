@@ -1,4 +1,4 @@
-class Sesheta::LabObservation < Hashie::Trash
+class Sesheta::LabObservation < Hashie::WhiteTrash
   property :id, :from => :LabObservationID
   property :id, :from => :LabObservationId
   property :loinc_id, :from => :LoincID

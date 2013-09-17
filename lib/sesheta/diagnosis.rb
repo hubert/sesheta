@@ -1,4 +1,4 @@
-class Sesheta::Diagnosis < Hashie::Trash
+class Sesheta::Diagnosis < Hashie::WhiteTrash
   property :icd, :from => :ICD
   property :dx_name, :from => :DxName
   property :id
