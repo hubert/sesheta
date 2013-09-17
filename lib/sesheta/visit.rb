@@ -13,6 +13,7 @@ module Sesheta
     property :diagnoses
     property :medications
     property :allergies
+    property :lab_results
 
     def diagnoses
       self[:diagnoses] || 
@@ -42,6 +43,35 @@ module Sesheta
         patient_id,
         id
       ).map { |allergy| Allergy.new(allergy) }
+    end
+
+    def lab_results
+      return self[:lab_results] if self[:lab_results]
+
+      # this procedure returns a 3 member array 
+      lab_results, lab_panels, lab_observations = connection.execute_procedure(
+        'phr_LabResultGetByTranscriptId',
+        user_id,
+        patient_id,
+        id
+      )
+      
+      lab_panels.map! { |lp| LabPanel.new(lp) }
+      lab_observations.map! { |lo| LabObservation.new(lo) }
+      lab_results.map! { |lr| LabResult.new(lr) }
+
+      # populate lab observations of lab panels
+      lab_panels.each do |panel|
+        panel.lab_observations = lab_observations.select do |obs|
+          obs.lab_panel_id == panel.id
+        end
+      end
+
+      self[:lab_results] = lab_results.each { |lab_result|
+        lab_result.lab_panels = lab_panels.select do |panel|
+          panel.lab_result_id == lab_result.id
+        end
+      }
     end
   end
 end
