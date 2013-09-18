@@ -3,13 +3,13 @@ require 'spec_helper'
 module Sesheta
   describe Diagnosis do
     it 'adds ruby style accessors' do
-      now = Time.now
+      t = Time.parse('2012-12-15 00:00:00 UTC')
       diagnosis = Diagnosis.new(
         "ICD"=>"642.13",
         "DxName"=>"Hypertension secondary",
         "id"=>77458,
-        "StartDate"=> now,
-        "StopDate"=> now,
+        "StartDate"=> t,
+        "StopDate"=> t,
         "Active" => true,
         "DaysApart" => 10,
         "TranscriptDOS" => Time.parse('2013-05-13 09:00:01 UTC')
@@ -18,8 +18,8 @@ module Sesheta
       expect(diagnosis.icd).to eql('642.13')
       expect(diagnosis.dx_name).to eql('Hypertension secondary')
       expect(diagnosis.id).to eql(77458)
-      expect(diagnosis.start_date).to eql(now)
-      expect(diagnosis.stop_date).to eql(now)
+      expect(diagnosis.start_date).to eql(Date.parse('2012-12-15'))
+      expect(diagnosis.stop_date).to eql(Date.parse('2012-12-15'))
       expect(diagnosis.active).to eql(true)
       expect(diagnosis.days_apart).to eql(10)
       expect(diagnosis.date_of_service).to eql(Date.parse('2013-05-13'))
